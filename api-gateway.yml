@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: STUDENT-SERVICE
+          uri: lb://STUDENT-SERVICE
+          predicates:
+            - Path=/api/**
+        - id: SUBJECT-SERVICE
+          uri: lb://SUBJECT-SERVICE
+          predicates:
+            - Path=/subjectapi/**
+server:
+  port: 8081
